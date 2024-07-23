@@ -34,7 +34,7 @@ Create the `volumes/webauthn-proxy-config/credentials.yml` file starting from [`
   You can use the following command to **generate** a cookie session secret:
 
   ```bash
-  docker run -it --rm docker.io/quiq/webauthn_proxy:0.1 -generate-secret
+  docker run -it --rm docker.io/dmotte/webauthn-proxy:latest -generate-secret
   ```
 
 - As for the `user_credentials` dictionary, you can leave it empty (`{}`) for now, and you'll populate it later, once someone **registers** in your _WebAuthn Proxy_ instance.
