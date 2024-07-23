@@ -1,5 +1,5 @@
 ---
-name: main # TODO rename this file
+name: main
 
 on:
   push: # All branches and tags
