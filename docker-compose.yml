@@ -1,0 +1,32 @@
+---
+services:
+  portmap-client:
+    image: docker.io/dmotte/portmap-client:latest
+    restart: always
+    volumes:
+      - ./volumes/portmap-client/known_hosts:/known_hosts:ro
+      - ./volumes/portmap-client/ssh-client-key.pem:/ssh_client_key:ro
+    command: portmap@myserver.example.com -NvR8001:traefik:80
+
+  traefik:
+    image: docker.io/library/traefik:v3.0
+    restart: always
+    volumes:
+      - ./volumes/traefik/traefik.yml:/etc/traefik/traefik.yml:ro
+      - ./volumes/traefik/dynamic.yml:/etc/traefik/dynamic/dynamic.yml:ro
+
+  webauthn-proxy:
+    image: docker.io/dmotte/webauthn-proxy:latest
+    build: build
+    restart: always
+    volumes: [./volumes/webauthn-proxy-config:/opt/config:ro]
+
+  whoami:
+    image: docker.io/traefik/whoami:v1.10
+    restart: always
+    hostname: whoami
+
+  webserver:
+    image: docker.io/joseluisq/static-web-server:2
+    restart: always
+    volumes: [./volumes/webserver-public:/public:ro]
