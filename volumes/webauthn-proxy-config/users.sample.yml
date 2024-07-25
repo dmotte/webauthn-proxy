@@ -1,6 +1,4 @@
 ---
-cookie_session_secrets: [xxx]
-
 user_credentials:
   alice: xxx
   bob: xxx

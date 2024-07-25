@@ -23,21 +23,21 @@ First of all, you need to set up everything for the `portmap-client` docker-comp
 
 Then you need to replace `example.com` with the right target **domain name** inside [`volumes/webauthn-proxy-config/config.yml`](volumes/webauthn-proxy-config/config.yml).
 
-Create the `volumes/webauthn-proxy-config/credentials.yml` file starting from [`volumes/webauthn-proxy-config/credentials.sample.yml`](volumes/webauthn-proxy-config/credentials.sample.yml):
+Create the `volumes/webauthn-proxy-config/cooks.yml` file starting from [`volumes/webauthn-proxy-config/cooks.sample.yml`](volumes/webauthn-proxy-config/cooks.sample.yml). It's important to generate and set a **cookie session secret** there, to avoid the following error after _WebAuthn Proxy_ restart:
 
-- It's important to generate and set a **cookie session secret** there, to avoid the following error after _WebAuthn Proxy_ restart:
+```
+Error getting session from session store during user auth handler: securecookie: the value is not valid
+```
 
-  ```
-  Error getting session from session store during user auth handler: securecookie: the value is not valid
-  ```
+You can use the following command to **generate** a cookie session secret:
 
-  You can use the following command to **generate** a cookie session secret:
+```bash
+docker run -it --rm docker.io/dmotte/webauthn-proxy:latest -generate-secret
+```
 
-  ```bash
-  docker run -it --rm docker.io/dmotte/webauthn-proxy:latest -generate-secret
-  ```
+Create the `volumes/webauthn-proxy-config/users.yml` file starting from [`volumes/webauthn-proxy-config/users.sample.yml`](volumes/webauthn-proxy-config/users.sample.yml). You can leave the `user_credentials` dictionary empty (`{}`) for now, and you'll populate it later, once someone **registers** in your _WebAuthn Proxy_ instance.
 
-- As for the `user_credentials` dictionary, you can leave it empty (`{}`) for now, and you'll populate it later, once someone **registers** in your _WebAuthn Proxy_ instance.
+> **Note**: the _WebAuthn Proxy_ service will **restart automatically** whenever the `users.yml` file is changed.
 
 ### Final steps
 
