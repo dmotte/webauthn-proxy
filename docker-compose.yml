@@ -33,7 +33,7 @@ services:
       - ./volumes/webauthn-proxy-config/users.yml:/serve/users.yml
     command: >
       sftpgo portable --log-file-path=/dev/stdout --sftpd-port=2022 --username=user --directory=/serve
-      --permissions=list,download,upload,overwrite,delete,rename,create_dirs,chmod,chtimes,copy
+      --permissions=download,upload,overwrite
 
   whoami:
     image: docker.io/traefik/whoami:v1.10
