@@ -24,6 +24,17 @@ services:
       - ./volumes/webauthn-proxy-config/cooks.yml:/opt/config/cred-parts/cooks.yml:ro
       - ./volumes/webauthn-proxy-config/users.yml:/opt/config/cred-parts/users.yml:ro
 
+  webauthn-admin: # Inspired by https://github.com/dmotte/misc/tree/main/examples/docker-compose/sftpgo
+    image: docker.io/drakkan/sftpgo:v2.6-alpine
+    restart: always
+    ports: ["2022:2022"]
+    volumes:
+      - webauthn-admin-home:/var/lib/sftpgo
+      - ./volumes/webauthn-proxy-config/users.yml:/serve/users.yml
+    command: >
+      sftpgo portable --log-file-path=/dev/stdout --sftpd-port=2022 --username=user --directory=/serve
+      --permissions=list,download,upload,overwrite,delete,rename,create_dirs,chmod,chtimes,copy
+
   whoami:
     image: docker.io/traefik/whoami:v1.10
     restart: always
@@ -33,3 +44,6 @@ services:
     image: docker.io/joseluisq/static-web-server:2
     restart: always
     volumes: [./volumes/webserver-public:/public:ro]
+
+volumes:
+  webauthn-admin-home: {}

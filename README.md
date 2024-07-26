@@ -15,6 +15,8 @@ In this repo we also provide an example of how to protect services with **WebAut
 
 Note that this is meant to be run behind an **HTTPS &rarr; HTTP** reverse proxy.
 
+In addition, the [`docker-compose.yml`](docker-compose.yml) file also defines an example **SFTPGo container** named `webauthn-admin`, which you can use to edit the WebAuthn user credentials file (`users.yml`) via SFTP.
+
 ### Set up portmap-client
 
 First of all, you need to set up everything for the `portmap-client` docker-compose service. Basically you need to create the missing files into the [`volumes/portmap-client`](volumes/portmap-client) directory (see instructions in the [official repo](https://github.com/dmotte/docker-portmap-client)) and adjust the `command` field of the `portmap-client` service in the [`docker-compose.yml`](docker-compose.yml) file with the right values.
