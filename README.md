@@ -34,7 +34,7 @@ Error getting session from session store during user auth handler: securecookie:
 You can use the following command to **generate** a cookie session secret:
 
 ```bash
-docker run -it --rm docker.io/quiq/webauthn_proxy:0.1 -generate-secret
+docker run --rm docker.io/quiq/webauthn_proxy:0.1 -generate-secret
 ```
 
 Create the `volumes/webauthn-proxy-config/users.yml` file starting from [`volumes/webauthn-proxy-config/users.sample.yml`](volumes/webauthn-proxy-config/users.sample.yml). You can leave the `user_credentials` dictionary empty (`{}`) for now, and you'll populate it later, once someone **registers** in your _WebAuthn Proxy_ instance.
