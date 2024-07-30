@@ -32,7 +32,8 @@ services:
       - webauthn-admin-home:/var/lib/sftpgo
       - ./volumes/webauthn-proxy-config/users.yml:/serve/users.yml
     command: >
-      sftpgo portable --log-file-path=/dev/stdout --sftpd-port=2022 --username=user --directory=/serve
+      sftpgo portable --log-file-path=/dev/stdout --log-level=info
+      --sftpd-port=2022 --username=user --directory=/serve
       --permissions=list,download,upload,overwrite
 
   whoami:
