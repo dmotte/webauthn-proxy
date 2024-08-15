@@ -17,8 +17,11 @@ http:
     auth-forward:
       forwardAuth:
         address: http://webauthn-proxy:8080/webauthn/auth
-        trustForwardHeader: true
         authResponseHeaders: [X-Authenticated-User]
+        # Set this only if this Traefik instance is running behind another
+        # reverse proxy. See
+        # https://community.traefik.io/t/what-does-trustforwardheader-do-for-forwardauth-and-when-would-we-use-it/14429
+        trustForwardHeader: true
     auth-errors:
       errors:
         status: ["401"]

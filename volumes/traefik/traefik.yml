@@ -8,4 +8,6 @@ entryPoints:
   web:
     address: ":80"
     forwardedHeaders:
+      # Set this only if this Traefik instance is running behind another
+      # reverse proxy
       trustedIPs: ["0.0.0.0/0"] # Always trust the X-Forwarded-* headers
