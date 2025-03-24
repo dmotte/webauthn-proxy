@@ -1,6 +1,10 @@
 ---
 rpDisplayName: example.com
 rpID: example.com
+
 sessionSoftTimeoutSeconds: 28800 # 8 hours
 sessionHardTimeoutSeconds: 28800 # 8 hours
+
 usernameRegex: ^[0-9a-z\-]+$
+
+cookieSecure: true
