@@ -7,13 +7,13 @@ COPY --chown=root:nobody --chmod=644 static/* /opt/static/
 # script running inside the container must be able to write to the
 # /opt/config/credentials.yml file
 USER root
-RUN install -onobody -gnobody -m644 /dev/null /opt/config/credentials.yml && \
+RUN install -onobody -gnobody -Tm644 /dev/null /opt/config/credentials.yml && \
     install -d -onobody -gnobody /opt/config/cred-parts && \
     echo -e '---\ncookie_session_secrets: []' | \
-        install -onobody -gnobody -m644 /dev/stdin \
+        install -onobody -gnobody -Tm644 /dev/stdin \
             /opt/config/cred-parts/cooks.yml && \
     echo -e '---\nuser_credentials: {}' | \
-        install -onobody -gnobody -m644 /dev/stdin \
+        install -onobody -gnobody -Tm644 /dev/stdin \
             /opt/config/cred-parts/users.yml
 USER nobody
 
