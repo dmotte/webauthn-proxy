@@ -6,14 +6,15 @@ COPY --chown=root:nobody --chmod=644 static/* /opt/static/
 # Note: the owners and permissions are important here, because the startup.sh
 # script running inside the container must be able to write to the
 # /opt/config/credentials.yml file
+# Note: not using install's "-T" flag as it's not supported in Alpine
 USER root
-RUN install -onobody -gnobody -Tm644 /dev/null /opt/config/credentials.yml && \
+RUN install -onobody -gnobody -m644 /dev/null /opt/config/credentials.yml && \
     install -d -onobody -gnobody /opt/config/cred-parts && \
     echo -e '---\ncookie_session_secrets: []' | \
-        install -onobody -gnobody -Tm644 /dev/stdin \
+        install -onobody -gnobody -m644 /dev/stdin \
             /opt/config/cred-parts/cooks.yml && \
     echo -e '---\nuser_credentials: {}' | \
-        install -onobody -gnobody -Tm644 /dev/stdin \
+        install -onobody -gnobody -m644 /dev/stdin \
             /opt/config/cred-parts/users.yml
 USER nobody
 
