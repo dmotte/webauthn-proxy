@@ -53,7 +53,15 @@ button {
 }
 
 #copyButton {
+  background-color: #ccc;
   height: 30px;
-  width: 35px;
+  width: 30px;
   vertical-align: top;
+  border: none;
+  padding: 0;
+
+  -webkit-mask-image: url(/webauthn/static/clipboard.svg);
+  mask-image: url(/webauthn/static/clipboard.svg);
+  -webkit-mask-size: contain;
+  mask-size: contain;
 }
