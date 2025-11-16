@@ -20,4 +20,4 @@ USER nobody
 
 COPY --chown=root:nobody --chmod=755 startup.sh /
 
-ENTRYPOINT ["/startup.sh"]
+ENTRYPOINT ["/bin/ash", "/startup.sh"]
