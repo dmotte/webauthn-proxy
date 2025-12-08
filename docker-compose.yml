@@ -25,7 +25,7 @@ services:
       - ./volumes/webauthn-proxy-config/users.yml:/opt/config/cred-parts/users.yml:ro
 
   webauthn-admin: # Inspired by https://github.com/dmotte/misc/tree/main/examples/docker-compose/sftpgo
-    image: docker.io/drakkan/sftpgo:v2.6-alpine
+    image: docker.io/drakkan/sftpgo:v2.7-alpine
     restart: always
     ports: ["2022:2022"]
     volumes:
