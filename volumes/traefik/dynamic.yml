@@ -18,9 +18,12 @@ http:
       forwardAuth:
         address: http://webauthn-proxy:8080/webauthn/auth
         authResponseHeaders: [X-Authenticated-User]
-        # Set this only if this Traefik instance is running behind another
-        # reverse proxy. See
+        # Set this to true only if this Traefik instance is running behind
+        # another reverse proxy. See
         # https://community.traefik.io/t/what-does-trustforwardheader-do-for-forwardauth-and-when-would-we-use-it/14429
+        # Warning: this option is deprecated, but Traefik currently requires to
+        # set it explicitly. For more information see
+        # https://doc.traefik.io/traefik/migrate/v3/#forwardauth-middleware-trustforwardheader
         trustForwardHeader: true
     auth-errors:
       errors:
