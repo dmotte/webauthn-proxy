@@ -25,6 +25,9 @@ http:
         # set it explicitly. For more information see
         # https://doc.traefik.io/traefik/migrate/v3/#forwardauth-middleware-trustforwardheader
         trustForwardHeader: true
+        # It is strongly recommended to set this option to a suitable value. See
+        # https://doc.traefik.io/traefik/reference/routing-configuration/http/middlewares/forwardauth/#maxresponsebodysize
+        maxResponseBodySize: 2097152 # 2 MB
     auth-errors:
       errors:
         status: ["401"]
