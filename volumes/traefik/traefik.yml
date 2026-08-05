@@ -1,5 +1,8 @@
 ---
-accessLog: { addInternals: true }
+# Enable access logging to stdout
+accessLog: { format: json, addInternals: true }
+
+log: { format: json, level: INFO }
 
 providers:
   file: { directory: /etc/traefik/dynamic }
