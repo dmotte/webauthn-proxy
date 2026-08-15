@@ -9,7 +9,8 @@ readonly \
 
 readonly sleep_secs="${WPWRAPPER_SLEEP:-10}" # seconds
 
-trap 'jobs -p | xargs -rd\\n kill; wait' EXIT
+# We don't use "xargs" here because we want to use Bash's builtin "kill"
+trap 'builtin kill $(jobs -p) 2>/dev/null || :; wait' EXIT
 
 while :; do
     lastmod_users=$(date -r "$cred_users" +%s.%N)
