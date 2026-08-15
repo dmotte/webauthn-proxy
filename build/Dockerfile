@@ -7,7 +7,7 @@ USER root
 
 RUN apk add --no-cache tini
 
-# Note: the owners and permissions are important here, because the startup.sh
+# Note: the owners and permissions are important here, because the entrypoint.sh
 # script running inside the container must be able to write to the
 # /opt/config/credentials.yml file
 # Note: not using install's "-T" flag as it's not supported in Alpine
@@ -22,6 +22,6 @@ RUN install -onobody -gnobody -vm644 /dev/null /opt/config/credentials.yml && \
 
 USER nobody
 
-COPY --chown=root:nobody --chmod=755 startup.sh /
+COPY --chown=root:nobody --chmod=755 entrypoint.sh /
 
-ENTRYPOINT ["/sbin/tini", "--", "/bin/ash", "/startup.sh"]
+ENTRYPOINT ["/sbin/tini", "--", "/bin/ash", "/entrypoint.sh"]
