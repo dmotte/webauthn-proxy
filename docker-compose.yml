@@ -44,10 +44,5 @@ services:
     restart: always
     hostname: whoami
 
-  webserver:
-    image: docker.io/joseluisq/static-web-server:2
-    restart: always
-    volumes: [./volumes/webserver-public:/public:ro]
-
 volumes:
   webauthn-admin-home: {}
