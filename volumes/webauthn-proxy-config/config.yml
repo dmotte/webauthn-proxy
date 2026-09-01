@@ -1,6 +1,7 @@
 ---
 rpDisplayName: example.com
 rpID: example.com
+rpOrigins: [https://example.com, https://www.example.com]
 
 sessionSoftTimeoutSeconds: 28800 # 8 hours
 sessionHardTimeoutSeconds: 28800 # 8 hours
