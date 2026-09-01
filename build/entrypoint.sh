@@ -8,7 +8,7 @@ readonly \
     cred_merged=/opt/config/credentials.yml
 
 # Some examples: ".5", "0.5", "0.5s", "30", "30s", "5m", "1h"
-readonly sleep_interval=${WPWRAPPER_SLEEP:-10s}
+readonly sleep_interval=${WEBAUTHN_PROXY_WRAPPER_SLEEP:-10s}
 
 # We don't use "xargs" here because we want to use Bash's builtin "kill"
 trap 'builtin kill $(jobs -p) 2>/dev/null || :; wait' EXIT
