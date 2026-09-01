@@ -1,5 +1,7 @@
 # webauthn-proxy
 
+TODO make README similar to other images
+
 [![GitHub main workflow](https://img.shields.io/github/actions/workflow/status/dmotte/webauthn-proxy/main.yml?branch=main&logo=github&label=main&style=flat-square)](https://github.com/dmotte/webauthn-proxy/actions)
 [![Docker Pulls](https://img.shields.io/docker/pulls/dmotte/webauthn-proxy?logo=docker&style=flat-square)](https://hub.docker.com/r/dmotte/webauthn-proxy)
 
@@ -11,15 +13,15 @@ GitHub repo of the upstream [**WebAuthn Proxy**](https://github.com/Quiq/webauth
 
 ## Usage
 
-In this repo we also provide an example of how to protect services with **WebAuthn** using this image and [Traefik](https://traefik.io/), and expose the resulting stack through an **SSH reverse port forwarding tunnel** using [dmotte/docker-portmap-client](https://github.com/dmotte/docker-portmap-client). See the [`docker-compose.yml`](docker-compose.yml) file.
+In this repo we also provide an example of how to protect services with **WebAuthn** using this image and [Traefik](https://traefik.io/), and expose the resulting stack through an **SSH reverse port forwarding tunnel** using [dmotte/portfwd-client](https://github.com/dmotte/docker-images/tree/main/portfwd-client). See the [`docker-compose.yml`](docker-compose.yml) file.
 
 Note that this is meant to be run behind an **HTTPS &rarr; HTTP** reverse proxy.
 
 In addition, the [`docker-compose.yml`](docker-compose.yml) file also defines an example **SFTPGo container** named `webauthn-admin`, which you can use to edit the WebAuthn user credentials file (`users.yml`) via SFTP.
 
-### Set up portmap-client
+### Set up portfwd-client
 
-First of all, you need to set up everything for the `portmap-client` docker-compose service. Basically you need to create the missing files into the [`volumes/portmap-client`](volumes/portmap-client) directory (see instructions in the [official repo](https://github.com/dmotte/docker-portmap-client)) and adjust the `command` field of the `portmap-client` service in the [`docker-compose.yml`](docker-compose.yml) file with the right values.
+First of all, you need to set up everything for the `portfwd-client` docker-compose service. Basically you need to create the missing files in the [`volumes/portfwd-client`](volumes/portfwd-client) directory (see the [project's documentation](https://github.com/dmotte/docker-images/tree/main/portfwd-client)) and adjust the `command` field of the `portfwd-client` service in the [`docker-compose.yml`](docker-compose.yml) file with the right values.
 
 ### Set up webauthn-proxy
 

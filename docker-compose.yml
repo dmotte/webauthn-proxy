@@ -1,15 +1,17 @@
 ---
-services:
-  portmap-client:
-    image: docker.io/dmotte/portmap-client:latest
+services: # TODO test all the services thoroughly
+  portfwd-client:
+    # Tested with docker.io/dmotte/portfwd-client:v2026.08.27.1529
+    image: docker.io/dmotte/portfwd-client:latest
     restart: always
     volumes:
-      - ./volumes/portmap-client/known_hosts:/known_hosts:ro
-      - ./volumes/portmap-client/ssh-client-key.pem:/ssh_client_key:ro
-    command: portmap@myserver.example.com -NvR8001:traefik:80
+      - ./volumes/portfwd-client/known_hosts:/opt/sshset/data/known-hosts/known_hosts:ro
+      - ./volumes/portfwd-client/id_ed25519:/opt/sshset/data/identity-keys/id_ed25519:ro
+    environment: { USERNGO_NAME: myuser }
+    command: myuser@myserver.example.com -R8001:traefik:80
 
   traefik:
-    # Tested with docker.io/library/traefik:v3.7.10
+    # Tested with docker.io/library/traefik:v3.7.10 # TODO update?
     # Note: when upgrading between different Traefik minor versions, see
     # https://doc.traefik.io/traefik/migrate/v3/
     image: docker.io/library/traefik:v3.7
