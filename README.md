@@ -1,7 +1,5 @@
 # webauthn-proxy
 
-TODO make README similar to other images
-
 [![GitHub main workflow](https://img.shields.io/github/actions/workflow/status/dmotte/webauthn-proxy/main.yml?branch=main&logo=github&label=main&style=flat-square)](https://github.com/dmotte/webauthn-proxy/actions)
 [![Docker Pulls](https://img.shields.io/docker/pulls/dmotte/webauthn-proxy?logo=docker&style=flat-square)](https://hub.docker.com/r/dmotte/webauthn-proxy)
 
@@ -21,7 +19,7 @@ In addition, the [`docker-compose.yml`](docker-compose.yml) file also defines an
 
 ### Set up portfwd-client
 
-First of all, you need to set up everything for the `portfwd-client` docker-compose service. Basically you need to create the missing files in the [`volumes/portfwd-client`](volumes/portfwd-client) directory (see the [project's documentation](https://github.com/dmotte/docker-images/tree/main/portfwd-client)) and adjust the `command` field of the `portfwd-client` service in the [`docker-compose.yml`](docker-compose.yml) file with the right values.
+First of all, you need to set up everything for the `portfwd-client` docker-compose service. Basically you need to create the missing files in the [`volumes/portfwd-client`](volumes/portfwd-client) directory (see [`volumes/portfwd-client/.gitignore`](volumes/portfwd-client/.gitignore) and [the `portfwd-client` project's documentation](https://github.com/dmotte/docker-images/tree/main/portfwd-client)) and adjust the `command` field of the `portfwd-client` service in the [`docker-compose.yml`](docker-compose.yml) file with the right values.
 
 ### Set up webauthn-proxy
 
