@@ -11,7 +11,7 @@ services: # TODO test all the services thoroughly
     command: myuser@myserver.example.com -R8001:traefik:80
 
   traefik:
-    # Tested with docker.io/library/traefik:v3.7.10 # TODO update?
+    # Tested with docker.io/library/traefik:v3.7.12
     # Note: when upgrading between different Traefik minor versions, see
     # https://doc.traefik.io/traefik/migrate/v3/
     image: docker.io/library/traefik:v3.7
