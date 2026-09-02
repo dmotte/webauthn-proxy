@@ -1,5 +1,5 @@
 ---
-services: # TODO test all the services thoroughly
+services:
   portfwd-client:
     # Tested with docker.io/dmotte/portfwd-client:v2026.08.27.1529
     image: docker.io/dmotte/portfwd-client:latest

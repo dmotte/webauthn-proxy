@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-# Tested with docker.io/quiq/webauthn_proxy:0.4 # TODO update?
+# Tested with docker.io/quiq/webauthn_proxy:0.6
 FROM docker.io/quiq/webauthn_proxy:latest
 
 USER root
