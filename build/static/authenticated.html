@@ -7,19 +7,30 @@
 
     <title>WebAuthn Proxy Authenticated</title>
 
-    <link rel="icon" type="image/x-icon" href="/webauthn/static/favicon.ico" />
-
     <meta http-equiv="refresh" content="0; URL=/" />
 
-    <link rel="stylesheet" type="text/css" href="/webauthn/static/styles.css" />
+    <style type="text/css">
+      :root {
+        color-scheme: light dark;
+      }
+
+      body,
+      td,
+      th {
+        font-family: sans-serif;
+      }
+
+      .text-center {
+        text-align: center;
+      }
+    </style>
   </head>
+
   <body>
-    <div id="form">
-      <div id="successMessages" class="successMessageText">
-        Successfully authenticated
-      </div>
-      <br />
-      Redirecting to the <a href="/">home page</a>...
+    <div class="text-center">
+      <h1>Successfully authenticated</h1>
+
+      <p>Redirecting to the <a href="/">home page</a>...</p>
     </div>
   </body>
 </html>
