@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-# Tested with docker.io/quiq/webauthn_proxy:0.6
+# Tested with docker.io/quiq/webauthn_proxy:0.7
 FROM docker.io/quiq/webauthn_proxy:latest
 
 USER root
